@@ -5,6 +5,6 @@ I'm a Tech Enthusiast & IT Problem Solver with a deep interest in Cybersecurity.
 
 ## Labs
 
-| Skill / Tool                                        |                                    Associated Project                   |
-|--------------------------------------------------------------|----------------------------------------------------------------|
-| Kerberoasting | <a href="https://github.com/Matt4llan/SYWTBASA-Lab">So You Want To Be A SOC Analyst Lab - Eric Capuano</a>|
+| Skill / Tool                                        |                                    Associated Project                       |
+|--------------------------------------------------------------|--------------------------------------------------------------------|
+| Kerberoasting | <a href="https://github.com/Matt4llan/Attack-Defense/blob/main/Kerberoasting">Attack & Defense - Kerberoasting</a>|
