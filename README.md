@@ -9,3 +9,4 @@ The below labs delves into various cybersecurity attacks. For every attack, i wi
 |--------------------------------------------------------------|-----------------------------------------------------------------------|
 | Kerberoasting | <a href="https://github.com/Matt4llan/Attack-Defense/blob/main/Kerberoasting.md">Attack & Defense - Kerberoasting</a>| 
 | AS-REProasting | <a href="https://github.com/Matt4llan/Attack-Defense/blob/main/AS-REProasting.md">Attack & Defense - AS-REProasting</a>|
+| GPP Passwords | <a href="https://github.com/Matt4llan/Attack-Defense/blob/main/AS-REProasting.md">Attack & Defense - GPP Passwords</a>|
