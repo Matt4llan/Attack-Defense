@@ -67,22 +67,23 @@ This attack leverages a semi-privileged user with an intentionally incorrect pas
 
 Screen shote of the 3 Event ID's
 
-img
+![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/a52f869b-a9df-476f-b6d6-b0b9b91bee15)
 
-img
+![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/a3f01700-77ac-4453-9775-f08fed968292)
 
-img
+![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/9efad73c-f0f1-4917-af8e-996cc3e9d484)
 
 ### Investigate
 
 There are two detection techniques for this attack
 
 1. Auditing access to XML files containing credentials can serve as a red flag for suspicious activity. Using a dummy XML file not linked to any GPO enhances detection, as there is no legitimate reason to access it. Tools like Get-GPPPasswords parse all XML files in the Policies folder. For effective monitoring, generate an event whenever a user reads the dummy file, as any such attempt is likely suspicious.
+We can filter the results with Event ID 4663 - Event ID 4663 is generated when an attempt is made to access an object, such as a file, folder, registry key, or other system object, that is being audited for access.
 
-img
+![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/e07040ee-9e64-4e21-9aca-b99b0a7d89cf)
 
 2. Monitoring logon attempts of the user whose credentials are exposed is a key method for detecting this attack. Events to watch for include 4624 (successful logon), 4625 (failed logon), and 4768 (TGT requested). A successful logon from this attack would generate a specific event on the Domain Controller, indicating potential abuse.
 
-img
+![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/a9b15758-ea43-4733-b04e-eb59c25a70b0)
 
 For service accounts, detecting abnormal logon attempts can be achieved by correlating them with the originating device. Since service accounts typically log on from specific locations, any logon attempt from a workstation is unusual and should be investigated.
