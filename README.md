@@ -1,6 +1,6 @@
 # Attack-Defense
 
-I'm a Tech Enthusiast & IT Problem Solver with a deep interest in Cybersecurity. My journey through IT Support, Networking, and Linux has sparked my passion for securing and defending digital landscapes. I am currently channeling all my efforts into studying and preparing for a new role in the Cybersecurity industry. This GitHub profile is a showcase of my experience with various tools and projects, demonstrating my hands-on skills and commitment to advancing in the cybersecurity realm.
+The below labs delves into various cybersecurity attacks. For every attack, i will be showing a step-by-step guide on execution, suggest preventive measures, and discuss detection capabilities. Additionally, I explore the use of honeypots where applicable. The attacks covered include Kerberoasting, AS-REProasting, GPP Passwords, Misconfigured GPO Permissions, and several others related to credential theft and Kerberos vulnerabilities. These attacks will be using Windows 10 and Kali Linux machines, simulating an attacker scenario with a compromised user in an Active Directory setup.
 
 
 ## Labs
