@@ -30,17 +30,59 @@ Here is an example XML file containing an encrypted password looks like (note th
 
 To start the attack we need to connect to our WIN10 box and run the powershell script 'Get-GPPPassword.ps1'
 
+```
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution /drive:share,/home/XXXXXXX
+```
+
+Next we need to open up a command prompt and CD to our downloads folder where the file we need to run in located.
+
+```
+cd C:\Users\bob\Downloads
+```
+
+Next we will import the module 'Get-GPPPassword.ps1'
+
+```
+Import-Module .\Get-GPPPassword.ps1
+Get-GPPPassword
+```
+
+![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/0dc95f43-7983-40e7-8694-70561d406aaf)
+
+We can see the output of the command below with the username and password in clear text
+
+![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/beaa513a-4fc1-40f4-8a9f-cb0d420273e3)
+
 
 ## Prevention
 
-
+Microsoft addressed the issue of credentials being exposed in Group Policy Preferences (GPP) by releasing patch KB2962486 in 2014, which prevents new credentials from being cached in SYSVOL. However, many Active Directory environments created after 2015 still inadvertently store credentials in SYSVOL. It's essential for organizations to regularly review their environments to ensure no credentials are exposed. Note that environments built before 2014 likely still have cached credentials, as the patch does not remove existing stored credentials but only prevents new ones from being cached.
 
 ## Detection
 
 ### HoneyPot
 
+This attack leverages a semi-privileged user with an intentionally incorrect password as bait, typically using service accounts for their infrequent password changes and predictable activity patterns. By ensuring the user's password is older than the modification date of the GPP XML file and scheduling dummy tasks to provoke recent logon attempts, any unexpected successful or failed logon attempts trigger alerts. Event IDs 4625, 4771, and 4776 are key indicators, primarily signaling failed logon attempts due to the incorrect password, highlighting potential malicious activity.
+
+Screen shote of the 3 Event ID's
+
+img
+
+img
+
+img
 
 ### Investigate
 
+There are two detection techniques for this attack
 
+1. Auditing access to XML files containing credentials can serve as a red flag for suspicious activity. Using a dummy XML file not linked to any GPO enhances detection, as there is no legitimate reason to access it. Tools like Get-GPPPasswords parse all XML files in the Policies folder. For effective monitoring, generate an event whenever a user reads the dummy file, as any such attempt is likely suspicious.
 
+img
+
+2. Monitoring logon attempts of the user whose credentials are exposed is a key method for detecting this attack. Events to watch for include 4624 (successful logon), 4625 (failed logon), and 4768 (TGT requested). A successful logon from this attack would generate a specific event on the Domain Controller, indicating potential abuse.
+
+img
+
+For service accounts, detecting abnormal logon attempts can be achieved by correlating them with the originating device. Since service accounts typically log on from specific locations, any logon attempt from a workstation is unusual and should be investigated.
