@@ -22,7 +22,7 @@ Kerberoasting is a post-exploitation attack in Active Directory where attackers 
 - Powershell
 - Kali Linux
 
-## Steps
+## Attack
 
 First we need to RDP to the windows machine
 
