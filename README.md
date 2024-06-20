@@ -7,4 +7,4 @@ The below labs delves into various cybersecurity attacks. For every attack, i wi
 
 | Skill / Tool                                        |                                    Associated Project                       |
 |--------------------------------------------------------------|--------------------------------------------------------------------|
-| Kerberoasting | <a href="https://github.com/Matt4llan/Attack-Defense/blob/main/Kerberoasting">Attack & Defense - Kerberoasting</a>|
+| Kerberoasting | <a href="https://github.com/Matt4llan/Attack-Defense/blob/main/Kerberoasting.md">Attack & Defense - Kerberoasting</a>|
