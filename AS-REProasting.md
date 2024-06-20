@@ -12,14 +12,12 @@ The AS-REProasting attack is similar to the Kerberoasting attack; we can obtain 
 ## Skills Learned
 - Run a AS-REProasting attack
 - Filtering the Windows Event Viewer logs
-- Cracking spn.txt files with John The Ripper and Hashcat
+- Cracking spn.txt files with Hashcat
 
 ## Tools Used
 - Windows Event Log
-- John The Ripper
 - Hashcat
 - Rubeus
-- Powershell
 - Kali Linux
 
 ## Steps
